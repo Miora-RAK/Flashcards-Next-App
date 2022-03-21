@@ -53,7 +53,7 @@ function Input(props: InputFlashcardProps) {
   return (
     <>
       <Layout>
-        <div className={styles.description}>
+        <div className={styles.main}>
           <p>Input</p>
 
           <section>

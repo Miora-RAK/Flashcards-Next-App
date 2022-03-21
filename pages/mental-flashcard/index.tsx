@@ -12,8 +12,9 @@ type MentalFlashcardProps = {
   data: Data;
 };
 function Mental(props: MentalFlashcardProps) {
-  // let randomData = props.data[Math.floor(Math.random() * props.data.length)];
-  // console.log("random", randomData);
+  let randomData = props.data[Math.floor(Math.random() * props.data.length)];
+  console.log("random", randomData);
+
   const [showAnswer, setShowAnswer] = React.useState(false);
   const addSolution = (): void => {
     setShowAnswer(!showAnswer);
@@ -22,7 +23,7 @@ function Mental(props: MentalFlashcardProps) {
   return (
     <>
       <Layout>
-        <div className={styles.description}>
+        <div className={styles.main}>
           <p>Mental</p>
 
           <section>
@@ -36,9 +37,7 @@ function Mental(props: MentalFlashcardProps) {
                 ) : (
                   <p className="card-text-center">{props.data[0].question}</p>
                 )}
-                {/* <button  className="btn btn-light">
-           Next
-         </button> */}
+                <button className="btn btn-light">Next</button>
               </div>
             </div>
           </section>

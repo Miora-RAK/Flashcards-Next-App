@@ -43,11 +43,11 @@ const Layout: React.FC = ({ children }) => {
       </header>
 
       {/*------------ Article start-------------*/}
-      <article>{children}</article>
+      <article className="container">{children}</article>
       {/*------------ Article end -------------*/}
 
       {/*------------ Footer start-------------*/}
-      <footer className="text-secondary">
+      <footer className="footer">
         <Link href="#">
           <a>Made by Miora</a>
         </Link>

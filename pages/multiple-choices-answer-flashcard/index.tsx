@@ -50,11 +50,11 @@ function Multiple(props: MultipleChoicesFlashcardProps) {
   return (
     <>
       <Layout>
-        <div className={styles.description}>
+        <div className={styles.main}>
           <p>Multiple</p>
 
           <section>
-            <div className={`rounded text-white p-5 ${backgroundColor}`}>
+            <div className={`rounded  p-5 ${backgroundColor}`}>
               <div className="text-center">
                 <h1 onClick={reset}>MultipleChoicesFlashcard</h1>
                 <p>{wrong}</p>
