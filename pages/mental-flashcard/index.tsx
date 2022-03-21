@@ -12,14 +12,20 @@ type MentalFlashcardProps = {
   data: Data;
 };
 function Mental(props: MentalFlashcardProps) {
-  let randomData = props.data[Math.floor(Math.random() * props.data.length)];
-  console.log("random", randomData);
+  // const randomData = props.data[Math.floor(Math.random() * props.data.length)];
+  // console.log("random", randomData);
+  const [randomNumber, setRandomNumber] = React.useState(
+    random(0, props.data.length - 1)
+  );
+  const [selected, setSelected] = React.useState(props.data[randomNumber]);
 
   const [showAnswer, setShowAnswer] = React.useState(false);
   const addSolution = (): void => {
     setShowAnswer(!showAnswer);
   };
-
+  function random(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <>
       <Layout>
@@ -33,14 +39,19 @@ function Mental(props: MentalFlashcardProps) {
               </div>
               <div className="card-body" onClick={addSolution}>
                 {showAnswer ? (
-                  <p className="card-text-center">{props.data[0].answer}</p>
+                  <p className="card-text-center">{selected.answer}</p>
                 ) : (
-                  <p className="card-text-center">{props.data[0].question}</p>
+                  <p className="card-text-center">{selected.question}</p>
                 )}
-                <button className="btn btn-light">Next</button>
               </div>
             </div>
           </section>
+          <button
+            className="btn btn-light"
+            onClick={() => setRandomNumber(random(0, props.data.length - 1))}
+          >
+            Next
+          </button>
         </div>
       </Layout>
     </>
